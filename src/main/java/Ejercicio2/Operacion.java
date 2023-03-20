@@ -10,4 +10,15 @@ public class Operacion {
             return (int)resultado;
         }
     }
+
+    public int resta(int a, int b) throws DesbordaCapacidadException{
+        long resultado = (long)a - (long)b;
+        if (resultado > Integer.MAX_VALUE || resultado < Integer.MIN_VALUE){
+            throw new DesbordaCapacidadException("El resultado de la resta es demasiado grande");
+        } else {
+            return (int)resultado;
+        }
+    }
+
+
 }
