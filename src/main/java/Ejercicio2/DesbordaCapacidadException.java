@@ -1,4 +1,7 @@
 package Ejercicio2;
 
-public class DesbordaCapacidadException {
+public class DesbordaCapacidadException extends Exception{
+    public DesbordaCapacidadException(String mensaje){
+        super(mensaje);
+    }
 }
