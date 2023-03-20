@@ -20,5 +20,24 @@ public class Operacion {
         }
     }
 
+    public int multiplicacion(int a, int b) throws DesbordaCapacidadException{
+        long resultado = (long)a * (long)b;
+        if(resultado > Integer.MAX_VALUE || resultado < Integer.MIN_VALUE){
+            throw new DesbordaCapacidadException("El resultado de la multiplicación es demasiado grande");
+        } else {
+            return (int)resultado;
+        }
+    }
+
+    public int division(int a, int b) throws DesbordaCapacidadException{
+        long resultado = (long)a / (long)b;
+        if(resultado > Integer.MAX_VALUE || resultado < Integer.MIN_VALUE){
+            throw new DesbordaCapacidadException("El resultado de la división es demasiado grande");
+        } else {
+            return (int)resultado;
+        }
+
+    }
+
 
 }
