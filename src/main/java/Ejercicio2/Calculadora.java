@@ -4,47 +4,57 @@ public class Calculadora {
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     Operacion operacion = new Operacion();
+    while(true){
+        System.out.println("Introduce un número entero: ");
+        int a = sc.nextInt();
+        System.out.println("Introduce otro número entero: ");
+        int b = sc.nextInt();
 
-    int opcion = sc.nextInt();
+        System.out.println("Introduce el operador que quieres usar (+-*/% o s para salir ");
+        String operador = sc.next();
 
+        if(operador.equals("s")){
+            System.out.println("Adiós");
+            break;
+        }
+
+        int resultado = 0;
         try{
-            System.out.println("Ingresa un número entero: ");
-            int a = sc.nextInt();
-            System.out.println("Ingresa otro número entero: ");
-            int b = sc.nextInt();
-
-            System.out.println("Elige una opción: ");
-            System.out.println("0. Salir");
-            System.out.println("1. Suma");
-            System.out.println("2. Resta");
-            System.out.println("3. Multiplicación");
-            System.out.println("4. División");
-
-            switch(opcion){
-                case 0:
-                    System.out.println("Adiós");
-                    return;
-                case 1:
-                    int suma = operacion.suma(a, b);
-                    System.out.println("La suma es: " + suma);
+            switch(operador){
+                case "+":
+                    resultado = operacion.suma(a, b);
+                    System.out.println("El resultado de la suma es: " + resultado);
                     break;
-                case 2:
-                    int resta = operacion.resta(a, b);
-                    System.out.println("La resta es: " + resta);
+                case "-":
+                    resultado = operacion.resta(a, b);
+                    System.out.println("El resultado de la resta es: " + resultado);
                     break;
-                case 3:
-                    int multiplicacion = operacion.multiplicacion(a, b);
-                    System.out.println("La multiplicación es: " + multiplicacion);
+                case "*":
+                    resultado = operacion.multiplicacion(a, b);
+                    System.out.println("El resultado de la multiplicación es: " + resultado);
                     break;
-                case 4:
-                    int division = operacion.division(a, b);
-                    System.out.println("La división es: " + division);
+                case "/":
+                    resultado = operacion.division(a, b);
+                    System.out.println("El resultado de la división es: " + resultado);
+                    if (a%b != 0){
+                        System.out.println("El resultado de la división no es exacto");
+                    }
                     break;
+                case "%":
+                    resultado = operacion.modulo(a, b);
+                    System.out.println("El resultado del módulo es: " + resultado);
+                    break;
+                    default:
+                        System.out.println("Operador no válido");
             }
-
-        }catch(DesbordaCapacidadException e){
+        }catch (DesbordaCapacidadException e){
             System.out.println(e.getMessage());
         }
 
     }
+
+
+    }
+
+
 }
